@@ -1,0 +1,35 @@
+.fusion-card-container {
+    // width: 468px;
+
+    .fusion-card-vendor-container {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 26px;
+        // background: #fff;
+
+    }
+
+    .fusion-card-vendor-item {
+        width: 50%;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 4px;
+    }
+
+    // 奇数行
+    .fusion-card-vendor-item:nth-child(odd) {
+        padding-right: 50px;
+    }
+
+    .fusion-card-vendor-item:nth-child(even) {
+        padding-left: 50px;
+    }
+
+    .fusion-card-vendor-item-name {
+        color: #8795A3;
+    }
+
+    .fusion-card-vendor-item-threshold {
+        color: #0185FF;
+    }
+}

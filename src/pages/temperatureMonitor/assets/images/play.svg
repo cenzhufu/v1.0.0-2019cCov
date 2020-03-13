@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="17px" height="17px" viewBox="0 0 17 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 62 (91390) - https://sketch.com -->
+    <title>播放</title>
+    <desc>Created with Sketch.</desc>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="自定义预设" transform="translate(-867.000000, -531.000000)" fill-rule="nonzero">
+            <g id="编组备份" transform="translate(853.000000, 523.000000)">
+                <g id="播放" transform="translate(14.000000, 8.000000)">
+                    <rect id="矩形" fill="#000000" opacity="0" x="0" y="0" width="16" height="16"></rect>
+                    <path d="M8.438,1.109 C4.595,1.109 1.469,4.235 1.469,8.078 C1.469,11.921 4.595,15.047 8.438,15.047 C12.281,15.047 15.407,11.921 15.407,8.078 C15.407,4.235 12.281,1.109 8.438,1.109 Z M8.438,14.047 C5.147,14.047 2.469,11.369 2.469,8.078 C2.469,4.787 5.147,2.109 8.438,2.109 C11.729,2.109 14.407,4.787 14.407,8.078 C14.407,11.369 11.729,14.047 8.438,14.047 Z" id="形状" fill="#FFFFFF"></path>
+                    <path d="M6.518,10.06 C6.518,10.61 6.908,10.835 7.384,10.56 L10.815,8.579 C11.292,8.304 11.292,7.854 10.815,7.579 L7.384,5.597 C6.907,5.322 6.518,5.547 6.518,6.097 L6.518,10.06 Z" id="路径" fill="#FFFFFF"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

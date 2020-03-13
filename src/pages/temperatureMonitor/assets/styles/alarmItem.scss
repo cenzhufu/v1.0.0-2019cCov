@@ -1,0 +1,235 @@
+.alarm-item-container {
+  position: relative;
+  width: 320px;
+  height: 188px;
+  padding: 8px 8px 8px 24px;
+  background-color: #fff;
+  //   margin: 12px;
+  //   box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.2);
+  //   border: 1px solid rgba(0, 0, 0, 0.8);
+  cursor: pointer;
+
+  .alarm-item-dot {
+    position: absolute;
+    background: #4293f4;
+    // content: '';
+    width: 8px;
+    height: 8px;
+    top: 50%;
+    left: 8px;
+    border-radius: 50%;
+  }
+
+  // .alarm-item-header {
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
+  // }
+
+  .alarm-item-info {
+    margin-left: 12px;
+    // display: flex;
+    // flex-direction: column;
+    font-size: 12px;
+    color: #a5acb2;
+  }
+
+  .alarm-item-temperture {
+    display: inline-block;
+    width: 64px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    background: #ff5d71;
+    font-size: 14px;
+    color: #ffffff;
+  }
+
+  .alarm-item-temperture-no {
+    display: inline-block;
+    width: 64px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    background: #32d5a2;
+    font-size: 14px;
+    color: #ffffff;
+  }
+
+  .alarm-item-no-mask {
+    // margin: 16px 0 8px 0;
+    display: inline-block;
+    width: 62px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    margin-left: 6px;
+    background: #ffb739;
+    font-size: 12px;
+    // border: 1px solid #FFB739;
+    // color: #FFB739;
+  }
+
+  .alarm-info-container {
+    margin-top: 8px;
+    display: flex;
+    // justify-content: center;
+    justify-items: center;
+  }
+
+  // .alarm-img-time {
+  //     width: 100px;
+  //     height: 100px;
+  // }
+
+  .alarm-info-img {
+    width: 100px;
+
+    // &:last-of-type {
+    //     margin: 0 12px 0 16px;
+    // }
+  }
+
+  .alarm-info {
+    width: 64px;
+    margin-top: -6px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .alarm-person-name {
+    display: inline-block;
+    // width: ;
+    height: 24px;
+    text-align: left;
+    font-size: 16px;
+    color: #4a4d51;
+    font-weight: 700;
+    white-space: nowrap; /* 规定文本是否折行 */
+    overflow: hidden; /* 规定超出内容宽度的元素隐藏 */
+    text-overflow: ellipsis;
+  }
+
+  .alarm-bamk-name {
+    display: inline-block;
+    height: 18px;
+    // width: 64px;
+    margin: 4px 0 4px 0;
+    text-align: left;
+    font-size: 12px;
+    color: #4a4d51;
+    white-space: nowrap; /* 规定文本是否折行 */
+    overflow: hidden; /* 规定超出内容宽度的元素隐藏 */
+    text-overflow: ellipsis;
+  }
+
+  .alarm-confidence-container {
+    width: 64px;
+    height: 57px;
+    padding: 2px;
+    text-align: center;
+    border: 1px solid #4293f4;
+    color: #4293f4;
+    .alarm-confidence-border {
+      width: 58px;
+      height: 51px;
+      line-height: 51px;
+      display: flex;
+      flex-direction: column;
+      justify-items: center;
+      align-items: center;
+      border: 3px solid #4293f4;
+    }
+
+    .alarm-confidence {
+      font-size: 16px;
+      font-weight: 700;
+    }
+  }
+
+  // .alarm-info-img:last-of-type {
+  //     margin: 0 12px 0 16px;
+  // }
+
+  .alarm-item-time {
+    margin: 16px 0 8px 0;
+  }
+
+  .alarm-item-status {
+    color: #32d5a2;
+  }
+
+  .alarm-footer {
+    display: flex;
+    // justify-content: ;
+  }
+
+  .alarm-img-time {
+    margin-top: 8px;
+    padding-left: 16px;
+    width: 40%;
+    // white-space: nowrap; /* 规定文本是否折行 */
+    // overflow: hidden; /* 规定超出内容宽度的元素隐藏 */
+    // text-overflow: ellipsis;
+    background: url(../images/time.svg) no-repeat 0px 4px;
+  }
+
+  .alarm-img-location {
+    margin-top: 8px;
+    padding-left: 16px;
+    // width: 100%;
+    white-space: nowrap; /* 规定文本是否折行 */
+    overflow: hidden; /* 规定超出内容宽度的元素隐藏 */
+    text-overflow: ellipsis;
+    background: url(../images/location.svg) no-repeat 0px 4px;
+  }
+
+  &:hover,
+  &.selected {
+    background: #4293f4;
+  }
+
+  &:hover .alarm-item-status,
+  &.selected .alarm-item-status {
+    color: #fff;
+  }
+
+  &:hover .alarm-item-info,
+  &.selected .alarm-item-info {
+    color: #fff;
+  }
+
+  &:hover .alarm-img-time,
+  &.selected .alarm-img-time {
+    // background-color: #fff;
+    color: #fff;
+  }
+
+  &:hover .alarm-img-location,
+  &.selected .alarm-img-location {
+    color: #fff;
+    // background-color: #fff;
+  }
+
+  &:hover .alarm-person-name,
+  &.selected .alarm-person-name {
+    color: #fff;
+  }
+
+  &:hover .alarm-bamk-name,
+  &.selected .alarm-bamk-name {
+    color: #fff;
+  }
+
+  &:hover .confidence-container,
+  &.selected .confidence-container {
+    color: #fff;
+    border-color: #fff;
+  }
+
+  &:hover .confidence-border,
+  &.selected .confidence-border {
+    border-color: #fff;
+    color: #fff;
+  }
+}

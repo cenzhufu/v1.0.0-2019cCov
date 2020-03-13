@@ -1,0 +1,89 @@
+.vendor-card-container {
+  width: 406px;
+  //   height: 164px;
+  // background: #FFFFFF;
+  box-shadow: 0 10px 20px 0 #e8e8e8;
+  //   border-radius: 6px;
+  border: 1px solid transparent;
+
+  &:hover {
+    border-color: #0185ff;
+  }
+
+  .vendor-card-top {
+    display: flex;
+  }
+  .ant-card-body {
+    // display: flex;
+    padding: 32px;
+    background: #ffffff;
+  }
+
+  .vendor-card-description {
+    position: relative;
+    width: 65%;
+    margin-left: 16px;
+  }
+
+  .vendor-card-order-blue {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+    background: #0185ff;
+    color: #fff;
+  }
+  .vendor-card-order {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+    color: #0185ff;
+    background: #fff;
+    border: 1px solid #0185ff;
+    font-size: 20px;
+  }
+
+  .vendor-card-name {
+    margin-top: 6px;
+    font-size: 18px;
+    color: #242424;
+  }
+
+  .vendor-card-number {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #5e6871;
+  }
+
+  .vendor-card-bank-wrapewr {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+
+    .vendor-card-bank-name {
+      display: inline-block;
+
+      font-size: 14px;
+      color: #5e6871;
+    }
+
+    .vendor-card-threshold {
+      font-size: 18px;
+      color: #0185ff;
+    }
+  }
+}
+
+.active {
+  border-color: #0185ff;
+}

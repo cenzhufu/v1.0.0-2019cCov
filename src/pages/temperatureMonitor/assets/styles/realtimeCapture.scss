@@ -1,0 +1,251 @@
+.realtime-capture-container {
+  position: relative;
+  height: 100%;
+  background: #f1f2f3;
+
+  .wrap {
+    width: 1524px;
+    height: 500px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .realtime-capture-header {
+    padding: 0 24px !important;
+    display: flex;
+    justify-content: space-around;
+    // display: grid;
+    // grid-template-columns: 1fr 1fr;
+    // grid-row-gap: 20px;
+    // grid-column-gap: 12px;
+    background: #f1f2f3;
+    // background: #fff;
+  }
+
+  .reltime-capture-total {
+    // background: #F1F2F3;
+    height: 56px;
+    width: 50%;
+    // line-height: 56px;
+    // text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    box-shadow: 0 5px 25px 0 rgba(9, 41, 77, 0.12);
+  }
+
+  .reltime-capture-today {
+    width: 50%;
+    height: 56px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    box-shadow: 0 5px 25px 0 rgba(9, 41, 77, 0.12);
+  }
+
+  .realtime-capture-content {
+    // margin: 12px 24px;
+    // padding-bottom: 24px;
+    // height: calc(100% - 240px);
+    // height: calc(100% - 560px);
+    display: flex;
+
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    // display: grid;
+    // grid-template-columns: 1fr 1fr;
+    // grid-column-gap: 12px;
+  }
+
+  .cctv-one-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .realtime-capture-cctv-one {
+    // width: 760px;
+    // height: 510px;
+    // height: 260px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    // border: 1px solid red;
+  }
+
+  .cctv-container {
+    // padding-left: 24px;
+    -ms-display: flex;
+    display: flex;
+    // flex-direction: column;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+
+  .realtime-capture-cctv {
+    width: 760px;
+    // width: 673px;
+    height: 252px;
+    // height: 300px;;
+    -ms-display: flex;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    // border: 1px solid red;
+  }
+
+  .realtime-capture-cctv:nth-child(odd) {
+    // //奇
+    // width: 100px;
+    // text-align: right;
+    margin-right: 3px;
+  }
+
+  .realtime-capture-cctv:nth-child(even) {
+    //偶
+    margin-left: 3px;
+  }
+
+  .none {
+    display: none;
+  }
+
+  @media screen and (max-width: 1366px) {
+    .realtime-capture-cctv {
+      width: 976px;
+      height: 300px;
+      margin-left: -6px;
+      margin-top: 6px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      // border: 1px solid red;
+    }
+
+    .cctv-container {
+      padding-left: 30px;
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .wrap {
+      width: 976px;
+      height: 300px;
+      margin-top: 10px;
+      // display: flex;
+      // flex-wrap: wrap;
+    }
+    .realtime-capture-header {
+      height: 32px;
+    }
+
+    .realtime-capture-person-container {
+      margin: 0 24px;
+      display: flex;
+      // overflow: hidden;
+      overflow: auto;
+      padding: 8px 12px 0 8px;
+      background: #fff;
+    }
+
+    .reltime-capture-total {
+      height: 32px;
+    }
+
+    .reltime-capture-today {
+      height: 32px;
+    }
+
+    .realtime-capture-title {
+      height: 32px !important;
+    }
+
+    .capture-footer {
+      position: relative;
+      top: 10px;
+    }
+  }
+
+  // .video1 {
+  // text-align: left;
+  // margin-left: -58px;
+  // }
+
+  // .video2 {
+  // margin-right: -58px;
+  // }
+
+  .realtime-capture-title {
+    height: 56px;
+    margin: 0 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    color: #0d1c27;
+    background: #fff;
+    box-shadow: inset 0 -1px 0 0 #dfe1e2;
+  }
+
+  .realtime-capture-all {
+    display: inline-block;
+    //width: 60px;
+    font-size: 12px;
+    color: #4a4d51;
+    //cursor: pointer;
+    //background: url('../images/double right.svg') no-repeat 30px 2px;
+  }
+
+  .realtime-capture-person-container {
+    // display: grid;
+    // grid-template-columns: repeat(10, 1fr);
+    // padding: 41px 0 12px 24px;
+    // margin-right: 24px;
+    margin: 0 24px;
+    display: flex;
+    // overflow: hidden;
+    overflow: auto;
+    // padding: 24px 12px;
+    padding: 12px;
+    background: #fff;
+  }
+
+  // .realtime-capture-footer {
+  // width: 100%;
+  // margin: 0 24px;
+  // min-height: 240px;
+  // position: absolute;
+  // left: 0;
+  // bottom: 0;
+  // background: #fff;
+  // }
+
+  .capture-footer {
+    width: 100%;
+    // height: 100%;;
+    // margin: 0 24px;
+    min-height: 200px;
+    margin: 0 24px;
+    background: #f1f2f3;
+
+    // margin-bottom: -20px;
+    // position: absolute;
+    // bottom: 0;
+    // padding-bottom: 20px !important;
+    // background: red;
+  }
+
+  // .capture-data {
+
+  // }
+  .no-capture-data {
+    line-height: 164px;
+    // text-align: center;
+    display: flex;
+    justify-content: center;
+  }
+
+  .ant-layout-footer {
+    padding: 0 !important;
+  }
+}

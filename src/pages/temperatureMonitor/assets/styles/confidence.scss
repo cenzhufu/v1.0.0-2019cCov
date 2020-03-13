@@ -1,0 +1,30 @@
+.confidence-container {
+    width: 64px;
+    height: 57px;
+    padding: 2px;
+    text-align: center;
+    border: 1px solid #4293F4;
+    color:  #4293F4;
+    .confidence-border {
+        width: 58px;
+        height: 51px;
+        
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+        align-items: center;
+        border: 3px solid #4293F4;
+
+    }
+
+    .no-compared {
+
+        line-height: 51px;
+    }
+
+    .confidence {
+        font-size: 16px;
+        font-weight: 700;
+    }
+
+}

@@ -1,0 +1,84 @@
+.conditional-filte-panel-container {
+  .conditional-filte-panel-title-wrap {
+    height: 40px;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    opacity: 0.7;
+    font-size: 16px;
+    color: #ffffff;
+  }
+
+  .conditional-filte-panel-title {
+    display: inline-block;
+    margin-left: 6px;
+    margin-right: 6px;
+  }
+
+  .conditional-filte-panel-checkall {
+    /* align-self: flex-end; */
+    color: #ffffff;
+  }
+
+  .algorithm-vender-company-list {
+    max-height: 300px;
+    // min-height: 140px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    font-size: 16px; 
+    animation: slowShow 0.2s;
+  }
+
+  .conditional-filte-panel-library-list {
+    max-height: 300px;
+    // min-height: 200px;
+    overflow-y: auto;
+    animation: slowShow 0.2s;
+  }
+
+  .conditional-filte-panel-sure-btn {
+    margin-top: 26px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .ant-checkbox-wrapper {
+    color: #ffffff;
+  }
+
+  .algorithm-vender-company-item {
+    margin-left: 46px;
+  }
+
+  .ant-tree {
+    padding-left: 8px;
+
+    .ant-tree-checkbox-inner {
+      background-color: transparent;
+      border-color: #1890ff;
+    }
+
+    .ant-tree-checkbox-checked .ant-tree-checkbox-inner {
+      background-color: #1890ff;
+    }
+  }
+
+  .ant-tree-title {
+    color: #fff;
+  }
+
+  .ant-tree-switcher-icon svg {
+    color: #788490;
+  }
+
+  .ant-checkbox-inner {
+    background-color: transparent;
+    border-color: #1890ff;
+  }
+
+  .ant-checkbox-checked .ant-checkbox-inner {
+    background-color: #1890ff;
+  }
+}

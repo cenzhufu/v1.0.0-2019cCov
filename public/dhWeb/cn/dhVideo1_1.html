@@ -1,0 +1,229 @@
+<!doctype html>
+<html>
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate" />
+    <meta http-equiv="Expires" content="0" />
+	<!-- <link href="../css/jquery-ui.css" rel="stylesheet"> -->
+	<!-- <link href="../css/jquery-ui.css" rel="stylesheet"> -->
+    <!-- <script>
+        document.write("<link type='text/css' href='../css/demo.css?version=" + new Date().getTime() + "' rel='stylesheet' />");
+    </script> -->
+    <style>
+        html,
+        body {
+          margin: 0;
+          padding: 0;
+          border: 0;
+        }
+    </style>
+</head>
+	<script src="../lib/jquery.js"></script>
+	<!-- <script src="../lib/jquery-ui.js"></script> -->
+	<!-- <script src="../lib/json2.js"></script> -->
+<body>
+    <div id="divPlugin" class="plugin">
+
+<script src="../module/foundation.js"></script>
+<script src="../module/WebVideoCtrl.js"></script>
+<script src="../module/modifyUI.js"></script>
+<!-- <script src="../module/demo.js"></script> -->
+
+<script>
+
+    //插件加载完毕后，会执行初始化化操作
+    $(function() {
+
+
+        var el_style = window.parent.document.el_style;
+        var oPlugin = {
+            // iWidth:  760, // plugin width
+            iWidth: el_style.w,//476 // plugin height
+            iHeight: el_style.h // plugin height
+        };
+
+        // console.log("el_style",el_style);
+        var cameraInfo = window.parent.document.cameraInfo[0] || null;
+        console.log('获取大华摄像头信息1_1', cameraInfo);
+        var hkServer = window.parent.document.hkServer;
+        // console.log('获取默认信息', hkServer);
+
+
+        // var szIP = '192.168.8.131',
+        // szPort = 37777,
+        // szUsername = "admin",
+        // szPassword = "admin1234",
+        // rtspPort = 80,
+        // protocol = 0,
+        // port = 37777,
+
+        // iStreamType = 1 ,// 1主码流  2 子主码流
+        // iChannel = 2;   //1 正常视频流  2热成像视屏流
+        if(!cameraInfo) {
+            return 
+        }
+
+        var cameraInfo = {
+            szIP : cameraInfo.uri,//'192.168.8.131',
+            szPort : Number(cameraInfo.port),// 37777,
+            szUsername :cameraInfo.username,// "admin",
+            szPassword : cameraInfo.password,// "admin1234",
+            rtspPort : hkServer.port,// 80,
+            protocol : 0,
+            port :Number(cameraInfo.port),// 37777,
+
+            iStreamType : 1 ,// 1主码流  2 子主码流
+            iChannel : 1   //1 正常视频流  2热成像视屏流
+        }
+
+
+        WebVideoCtrl.insertPluginObject("divPlugin", oPlugin.iWidth, oPlugin.iHeight);
+        //初始化插件
+        WebVideoCtrl.initPlugin("Dahua2", function() {
+            //创建视频窗口 
+            WebVideoCtrl.createMultiNodeDisplay(16);
+        
+            //设置窗口分割数
+            WebVideoCtrl.setSplitNum("1");
+            //注册事件
+            WebVideoCtrl.registerEvent("SelectedView", responseSelectedViewSignal);
+            //初始化路径
+            // var szDir = WebVideoCtrl.getUserDirectory();
+            // var szPath = szDir + "\\" + "LiveRecord";
+            // $("#LiveRecord").val(szPath);
+            // szPath = szDir + "\\" + "Download";
+            // $("#Download").val(szPath);
+
+            // szPath = szDir + "\\" + "LiveSnapshot";
+            // $("#LiveSnapshot").val(szPath);
+
+            // szPath = szDir + "\\" + "PlaybackPicPath";
+            // $("#PlaybackPicPath").val(szPath);
+
+            // szPath = szDir + "\\" + "PlaybackFilePath";
+            // $("#PlaybackFilePath").val(szPath);
+            // $("#tabs").tabs();
+            //隐藏窗口序号选择框
+            // $("#winIndex").hide();
+            clickLogin(cameraInfo);  //登录
+        });
+        // $("#tabs_ptz").tabs();
+        // $("#tabs_playback").tabs();
+        // $("#tabs_control").tabs();
+        // $("#closePtzLocate").hide();
+        // $("#openPtzLocate").show();
+    });
+
+    
+    //设备登录
+    function clickLogin(cameraInfo){
+        // var szLang = navigator.browserLanguage.toLowerCase();
+        // var szUserLang = navigator.userLanguage.toLowerCase();
+        // var szLanguage = (navigator.browserLanguage || navigator.language ).toLowerCase();
+        // szLanguage = szLanguage.substring(0, 2);
+
+    //    var cameraInfo= {port: 37777,protocol: 0,rtspPort: 80,szIP: "192.168.8.131",szPassword: "admin1234",szPort: 3777,szUsername: "admin"}
+
+        
+        var szIP =cameraInfo.szIP,// '192.168.8.131',
+        szPort =cameraInfo.szPort,// 37777,
+        szUsername = cameraInfo.szUsername,//"admin",
+        szPassword =cameraInfo.szPassword,// "admin1234",
+        rtspPort =cameraInfo.rtspPort,// 80,
+        protocol =cameraInfo.protocol,// 0,
+        port = cameraInfo.port,//37777,
+
+        iStreamType =cameraInfo.iStreamType,// 1 ,// 1主码流  2 子主码流
+        iChannel =cameraInfo.iChannel;// 2;   //1 正常视频流  2热成像视屏流
+
+
+
+        // console.log("camera_info", {
+        //     szIP: szIP,
+        //     szPort: szPort,
+        //     port: port,
+        //     szUsername: szUsername,
+        //     szPassword: szPassword,
+        //     rtspPort: rtspPort,
+        //     protocol: protocol,
+        //     iChannel:iChannel
+        // });
+
+        if ("" == szIP || "" == szPort) {
+            return;
+        }
+        // var port = parseInt($("#port").val());
+        //判断当前设备是否已经登录
+        var deviceInfo = WebVideoCtrl.getDeviceInfo(szIP);
+        if(typeof deviceInfo != "undefined"){
+            if(WebVideoCtrl.logout(szIP))
+            {
+                //添加提示
+                showOPInfo(szIP + " Logout Device ");
+                //删除设备信息
+                DemoUI.removeDeviceInfo(szIP);
+            }
+        }
+        WebVideoCtrl.login(szIP,port,szUsername,szPassword,rtspPort,protocol,
+                function(sIp,iDeviceID){
+                    console.log("登录成功",{sIp:sIp,iDeviceID:iDeviceID});
+                    //插入设备
+                    DemoUI.addDeviceIP(sIp);
+                    //获得通道号
+                    var channelNum = WebVideoCtrl.getChannelNumber(iDeviceID);
+                    //更新通道数据
+                    DemoUI.modifyChannelList(channelNum);
+
+
+                    setTimeout(function(){ 
+                        
+                        WebVideoCtrl.connectRealVideo(
+                            sIp,
+                            iChannel,
+                            iStreamType,
+                            function(iPlayerID) {
+                                console.log('开始预览成功');
+                                // showOPInfo(sIP + " Channel:" + iChannel.toString() + " Live succeed");
+                            },
+                            function(status, error) {
+                                console.log('预览失败');
+                                console.error(error);
+                                // showOPInfo(
+                                //     sIP + " Channel:" + iChannel.toString() + " Live Fail",
+                                //     status,
+                                //     error
+                                // );
+                            }
+                        );
+
+                    }, 1000);
+                },
+                function(iErrorCode,sError){
+                    console.log("登录失败");
+                    console.error(sError);
+                    // showOPInfo(szIP + " Login Fail ", iErrorCode, sError);
+            }
+        );
+    }
+
+    function responseSelectedViewSignal(iNodeIndex, iViewIndex, iWinID) {
+        //更新对应播放器的信息
+        var playrInfo = WebVideoCtrl.getPlayerInfo(iWinID);
+        //更新UI信息
+        if (typeof playrInfo != "undefined") {
+            //设备信息
+            var deviceInfo = WebVideoCtrl.getDeviceInfo(playrInfo.ip);
+            if (typeof deviceInfo != "undefined") {
+            DemoUI.updateDeviceInfo(playrInfo.ip);
+            DemoUI.setCurChannel(playrInfo.channle);
+            DemoUI.setCurStreamType(playrInfo.streamType);
+            }
+        }
+    }
+
+
+</script>
+</body>
+</html>

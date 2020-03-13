@@ -1,0 +1,46 @@
+.upload-panel-container {
+  .upload-panel-title-wrap {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    opacity: 0.7;
+    font-size: 16px;
+    color: #ffffff;
+  }
+
+  .upload-panel-title {
+    display: inline-block;
+    margin-left: 6px;
+  }
+
+  .upload-panel-operate {
+    margin-top: 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: slowShow 0.2s;
+  }
+
+  .upload-panel-img {
+    // box-sizing: border-box;
+    width: 102px;
+    height: 102px;
+    line-height: 100px;
+
+    cursor: pointer;
+    border-radius: 4px;
+    overflow: hidden;
+    animation: slowShow 0.2s;
+  }
+  .search-img {
+    border: 1px solid #0185ff;
+  }
+
+  .upload-panel-txt {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #0185ff;
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,439 @@
+
+
+.temperture-monitor-container {
+  // height: 100%;
+  background: #f1f2f3;
+  // background: #fff;
+
+  .temperture-monitor-header {
+    height: 72px;
+    margin: 0 24px 24px 24px;
+    border-bottom: 1px solid #0d1c27;
+    // margin-bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    background: #fff;
+    color: #0d1c27;
+    box-shadow: inset 0 -2px 0 0 #09294d;
+  }
+
+  .temperture-monitor-setting {
+    display: flex;
+    align-items: center;
+    // font-size: 14px;
+    // cursor: pointer;
+  }
+
+  .export-wraper {
+    position: relative;
+    padding: 0 26px;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    cursor: pointer;
+
+    .export-position {
+      position: absolute;
+      top: 64px;
+      right: 0;
+      z-index: 999;
+    }
+  }
+
+  .setting-wrap {
+    padding: 0 26px;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  .temperture-monitor-sider {
+    // padding-bottom: 12px;
+    background: #fff;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  @media screen and (max-width: 1366px) {
+    .temperture-monitor-sider-title {
+      height: 32px !important;
+    }
+
+    .temperture-monitor-header {
+      height: 48px;
+      line-height: 48px;
+      margin-bottom: 10px;
+    }
+
+    .temperture-monitor-sider {
+      height: 580px;
+    }
+
+    .temperture-monitor-alarm-container {
+      // height: 100% !important;
+      height: calc(100% - 32px);
+      overflow-x: hidden;
+      overflow-y: scroll;
+    }
+  }
+
+  .temperture-monitor-sider-title {
+    height: 56px;
+    padding: 0 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    color: #0d1c27;
+    box-shadow: inset 0 -1px 0 0 #dfe1e2;
+  }
+
+  .temperture-monitor-sider-all {
+    display: inline-block;
+    // width: 60px;
+    font-size: 12px;
+    color: #4a4d51;
+    // cursor: pointer;
+    // background: url('../images/double right.svg') no-repeat 30px 2px;
+  }
+
+  .temperture-monitor-alarm-container {
+    // height: 100% !important;
+    height: calc(100% - 56px);
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+
+  // .temperture-monitor-alarm-container {
+  // position: relative;
+  // height: calc(100% - 56px);
+  // height: 70%;
+
+  // -ms-height:100%; /*为IE*/
+  // height: 70%;
+  // height: 100%;
+  // overflow-y: auto;
+  // }
+
+  .no-alarm-data {
+    margin-top: 60%;
+    text-align: center;
+  }
+
+  .ant-layout-header {
+    padding: 0;
+  }
+}
+
+.config-modal-container {
+  .alarm-config-title {
+    display: inline-block;
+    padding-left: 10px;
+    margin-bottom: 10px;
+  }
+
+  .temperture-ranger-input {
+    margin-bottom: 10px;
+  }
+
+  .config-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .temperture-ranger-input {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .alarm-config-auto-view {
+    display: flex;
+    align-items: center;
+    margin-top: 14px;
+  }
+}
+
+// .modal-container {
+//   .alarm-info-container {
+//     display: flex;
+//     justify-content: space-around;
+//   }
+
+//   .alarm-background {
+//     position: relative;
+//     width: 432px;
+//     height: 244px;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     margin-right: 24px;
+//     background: #0f151d;
+
+//     &:hover {
+//       background-color: rgba(0, 0, 0, 0.8);
+//     }
+
+//     // z-index: inherit;
+
+//     .alarm-hover {
+//       width: 100%;
+//       height: 100%;
+//       position: absolute;
+//       left: 0;
+//       top: 0;
+//     }
+
+//     .alarm-active {
+//       display: none;
+//       // z-index: 100;
+//       // opacity: .4;
+//       // background: #0F151D;
+//       // color: red;
+//     }
+
+//     &:hover img {
+//       opacity: 0.4;
+//     }
+
+//     &:hover .alarm-active {
+//       display: flex;
+//       justify-content: space-around;
+//       align-items: center;
+//       z-index: 100;
+//       // opacity: .4;
+//       // background: #0F151D;
+//       color: red;
+//     }
+
+//     // .alarm-active {}
+
+//     .alaarm-hover-item {
+//       width: 104px;
+//       height: 32px;
+//       line-height: 32px;
+//       text-align: center;
+//       background-color: rgba(255, 255, 255, 0.24);
+//       color: #fff;
+//       cursor: pointer;
+//       border-radius: 4px;
+//     }
+//   }
+
+//   .alarm-info {
+//     width: 186px;
+//   }
+
+//   // .alarm-info-compared {
+
+//   // }
+
+//   .alarm-img-wraper {
+//     display: flex;
+//     justify-content: center;
+//     // align-items: center;
+//   }
+
+//   .wraper-cls-temp {
+//     margin: 0 8px;
+//     transform: translateY(50%);
+//     border-color: #fff;
+//   }
+//   .wraper-cls {
+//     margin: 0 8px;
+//     transform: translateY(50%);
+//     // border-color: #fff;;
+//   }
+
+//   // .border-cls-temp {
+
+//   // }
+
+//   .border-cls-temp {
+//     border-color: #fff;
+//     color: #fff;
+//   }
+
+//   // .alarm-img-temp {
+
+//   // }
+
+//   .alarm-img {
+//     width: 100px;
+//     height: 100px;
+//   }
+
+//   // .alarm-top {
+//   //     margin: 24px 0 18px 0;
+//   //     display: flex;
+//   //     // justify-content: center;
+//   //     align-items: center;
+//   // }
+
+//   .temperture {
+//     margin: 18px 0 10px 0;
+//   }
+
+//   .alarm-mask {
+//     width: 68px;
+//     height: 20px;
+//     text-align: center;
+//     line-height: 20px;
+//     margin-left: 8px;
+//     background-color: #ffb739;
+//     // background #FFB739;
+//     // color: #FFB739;
+//   }
+
+//   // .alarm-img-name {
+//   // display: flex;
+//   // flex-direction: column;
+//   // justify-content: center;
+//   // }
+
+//   .alarm-temp {
+//     color: #ffffff;
+//   }
+
+//   .alarm-person-name {
+//     height: 22px;
+//     line-height: 22px;
+//     text-align: center;
+//     margin-top: 22px;
+//     font-size: 16px;
+//   }
+
+//   .alarm-bank-name {
+//     height: 22px;
+//     line-height: 22px;
+//     text-align: center;
+//     margin-top: 4px;
+//     font-size: 12px;
+//   }
+
+//   // .alarm-temperture {
+//   //     width: 100px;
+//   //     height: 24px;
+//   //     line-height: 24px;
+//   //     text-align: center;
+//   //     margin: 24px 0 18px 0;
+//   //     // background: #fff;
+//   //     // opacity: 0.4;
+//   //     background-color: rgba(255, 255, 255, 0.4);
+//   //     color: #fff;
+//   //     font-size: 14px;
+//   //     // color: #FFF;
+//   // }
+
+//   .alarm-time,
+//   .alarm-address {
+//     font-size: 14px;
+//     // color: #FFFFFF;
+//   }
+
+//   .alarm-time {
+//     margin-top: 20px;
+//   }
+
+//   .alarm-address {
+//     margin-top: 8px;
+//   }
+// }
+
+.no-temp-modal {
+  .no-alarm-temperture {
+    width: 100px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+
+    // background-color: rgba(255, 255, 255, 0.4);
+    background: #32d5a2;
+    color: #fff;
+    font-size: 14px;
+  }
+}
+
+.temp-modal {
+  .alarm-temperture {
+    width: 100px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.4);
+    color: #fff;
+    font-size: 14px;
+    // color: #FFF;
+  }
+
+  .alarm-time,
+  .alarm-address {
+    font-size: 14px;
+    color: #ffffff;
+  }
+
+  .ant-modal-content,
+  .ant-modal-header {
+    background-color: #993844 !important;
+  }
+
+  .ant-modal-header {
+    border: none !important;
+    box-shadow: inset 0 -1px 0 0 rgba(255, 255, 255, 0.15);
+    // border-color: gray !important;
+  }
+
+  .ant-modal-close-icon {
+    opacity: 0.4 !important;
+    color: #ffffff !important;
+  }
+
+  .ant-modal-title {
+    color: #fff;
+  }
+}
+
+.mask-modal {
+  // .ant-modal-content,
+  // .ant-modal-header {
+  //     background-color: #993844 !important;
+  // }
+}
+
+.pic-modal-container {
+  .big-pic-container {
+    width: 800px;
+    height: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+
+  .ant-modal-close-icon {
+    // opacity: 0.4 !important;
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    color: #ffffff !important;
+    background: #4293f4 !important;
+  }
+
+  .ant-modal-close-x {
+    line-height: 0 !important;
+    text-align: right !important;
+  }
+}
+
+@keyframes slowShow {
+  from {
+    transform: scale(0);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}

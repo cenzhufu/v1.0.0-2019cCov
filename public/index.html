@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>智能体温监测系统</title>
+    <link rel="stylesheet" type="text/css" href="/assets/css/index.css" />
+  </head>
+
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div style="height: 100%; width: 100%;" id="root"></div>
+    <div id="windows" class="tip-container" style="display: none;">
+      <div id="browserSupport" class="tip-item">
+        <p id="Browser">我们推荐以下版本浏览器访问系统</p>
+        <!-- <p id="Browser-Edition" style="display:none;">
+          我们推荐更高版本的Chrome浏览器访问系统
+        </p> -->
+        <div id="text">
+          <a
+            style="text-decoration: none;"
+            href="/assets/download/GoogleChrome_41.0.2403.157_64.zip"
+          >
+            <span class="browserLogo"></span>
+            <span>ChromeV41</span>
+            <span id="download1" class="download">点击下载</span>
+          </a>
+        </div>
+        <div id="textOne" style="margin-top: 12px">
+          <a
+            style="text-decoration: none;"
+            href="/assets/download/GoogleChrome_44.0.2403.157_64.zip"
+          >
+            <span class="browserLogo"></span>
+            <span>ChromeV44</span>
+            <span id="download2" class="download">点击下载</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+    <script src="%PUBLIC_URL%/config.js"></script>
+    <script>
+      function BrowserType() {
+        var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串
+        var isIE =
+          userAgent.indexOf("compatible") > -1 &&
+          userAgent.indexOf("MSIE") > -1; //判断是否IE<11浏览器
+        var isEdge = userAgent.indexOf("Edge") > -1 && !isIE; //判断是否IE的Edge浏览器
+        var isIE11 =
+          userAgent.indexOf("Trident") > -1 &&
+          userAgent.indexOf("rv:11.0") > -1; //判断是否IE11浏览器
+        if (isEdge) {
+          var resizeTimer = null;
+          window.onresize = function() {
+            if (resizeTimer) clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(function() {
+              map_width = document.body.clientWidth; //获取body宽度
+              map_height = document.documentElement.clientHeight - 16; //获取页面可见高度
+              document.getElementById("windows").style.height =
+                map_height + "px";
+              document.getElementById("windows").style.width = map_width + "px";
+            }, 100);
+          };
+          map_width = document.body.clientWidth; //获取body宽度
+          map_height = document.documentElement.clientHeight - 16; //获取页面可见高度
+          document.getElementById("windows").style.height = map_height + "px";
+          document.getElementById("windows").style.width = map_width + "px";
+          return "IE";
+        } //判断是否IE浏览器
+
+        if (isIE || isIE11) {
+          return "ie";
+        }
+
+        if (userAgent.indexOf("Opera") > -1 || userAgent.indexOf("OPR") > -1) {
+          return "Opera";
+        } //判断是否Opera浏览器
+        if (userAgent.indexOf("Firefox") > -1) {
+          return "FF";
+        } //判断是否Firefox浏览器
+        if (userAgent.indexOf("Chrome") > -1) {
+          return "Chrome";
+        }
+        if (userAgent.indexOf("Safari") > -1) {
+          return "Safari";
+        } //判断是否Safari浏览器
+      }
+
+      // 设置div显示隐藏。
+      function setShow(documentId, show) {
+        document.getElementById(documentId).style.display = show;
+      }
+
+      var browserType = BrowserType();
+
+      if (browserType !== "Chrome") {
+        if (browserType === "ie") {
+          // setShow('windows', 'block');
+          // setShow('root', 'none');
+        } else {
+          setShow("windows", "block");
+          setShow("root", "none");
+        }
+      } else if (browserType == "Chrome") {
+        var arr = navigator.userAgent.split(" ");
+        var chromeVersion = "";
+        for (var i = 0; i < arr.length; i++) {
+          if (/chrome/i.test(arr[i])) chromeVersion = arr[i].split("/")[1];
+        }
+        console.log("版本号：", chromeVersion.split(".")[0]);
+        if (chromeVersion.split(".")[0] > 44) {
+          setShow("windows", "block");
+          setShow("root", "none");
+        }
+      } else {
+        setShow("windows", "none");
+        setShow("root", "block");
+      }
+
+      if (window.config.defaultLanguage !== "zh_CN") {
+        document.getElementById("Browser").innerHTML =
+          "We recommend Chrome browser access system";
+        document.getElementById("download1").innerHTML = "Download";
+        document.getElementById("download2").innerHTML = "Download";
+      }
+
+      //处理键盘事件 禁止后退键（Backspace）密码或单行、多行文本框除外
+      function banBackSpace(e) {
+        var ev = e || window.event; //获取event对象
+        var obj = ev.target || ev.srcElement; //获取事件源
+
+        var t = obj.type || obj.getAttribute("type"); //获取事件源类型
+
+        //获取作为判断条件的事件类型
+        var vReadOnly = obj.getAttribute("readonly");
+        var vEnabled = obj.getAttribute("enabled");
+        //处理null值情况
+        vReadOnly = vReadOnly == null ? false : vReadOnly;
+        vEnabled = vEnabled == null ? true : vEnabled;
+
+        //当敲Backspace键时，事件源类型为密码或单行、多行文本的，
+        //并且readonly属性为true或enabled属性为false的，则退格键失效
+        var flag1 =
+          ev.keyCode == 8 &&
+          (t == "password" || t == "text" || t == "textarea") &&
+          (vReadOnly == true || vEnabled != true)
+            ? true
+            : false;
+
+        //当敲Backspace键时，事件源类型非密码或单行、多行文本的，则退格键失效
+        var flag2 =
+          ev.keyCode == 8 && t != "password" && t != "text" && t != "textarea"
+            ? true
+            : false;
+
+        //判断
+        if (flag2) {
+          return false;
+        }
+        if (flag1) {
+          return false;
+        }
+      }
+
+      //禁止后退键 作用于Firefox、Opera
+      document.onkeypress = banBackSpace;
+      //禁止后退键  作用于IE、Chrome
+      document.onkeydown = banBackSpace;
+    </script>
+  </body>
+</html>

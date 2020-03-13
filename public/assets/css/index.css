@@ -1,0 +1,71 @@
+html,body {
+    margin: 0;
+    padding: 0;
+}
+
+#windows {
+  width: 100%;
+  height: 100%;
+  /* background: url('/assets/imgs/login_bg.jpg') center center no-repeat !important; */
+  background: url("/assets/imgs/bg.png");
+  /* background-repeat: no-repeat; */
+  /* background-position-x: center;
+  background-position-y: center; */
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+#browserSupport {
+  position: fixed;
+  top: 50%;
+  bottom: 50%;
+  left: 50%;
+  right: 50%;
+  width: 480px;
+  height: 120px;
+  z-index: 1000;
+  margin-top: -34px;
+  margin-left: -240px;
+  text-align: center;
+}
+
+#browserSupport p {
+  font-size: 24px;
+  padding: 15px;
+  margin: 0px;
+  color: white;
+  font-family: Microsoft Yahei;
+}
+
+#browserSupport .browserLogo {
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+  vertical-align: middle;
+  cursor: pointer;
+  /* background: url('/assets/icon/google.jpg') center center no-repeat !important; */
+  background-image: url("/assets/imgs/google.png");
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: center;
+  background-size: cover;
+  /*针对IE8的hack，目的是除掉之前background*/
+  background: none\9;
+  /*下一行为关键设置*/
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/assets/imgs/google.png', sizingMethod='scale');
+}
+
+#browserSupport .download {
+  padding: 8px 22px 8px 8px;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+  vertical-align: middle;
+  font-family: Microsoft Yahei;
+  background-image: url("/assets/imgs/download.png");
+  background-repeat: no-repeat;
+  background-position-x: right;
+  background-position-y: 6px;
+}
+
+

@@ -1,0 +1,57 @@
+.login-form-container {
+  height: 100%;
+  min-height: 488px;
+  min-width: 412px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: url("../images/bg.png");
+}
+
+.login-logo {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+}
+.login-title {
+  font-family: PingFangSC-Regular;
+  /* margin-top: 40px; */
+  font-size: 30px;
+  color: #333333;
+}
+
+.login-form {
+  height: 100%;
+  width: 416px;
+  min-height: 450px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background: #FFFFFF; */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+}
+
+.login-form-checked {
+  float: left;
+}
+
+.login-form-button {
+  height: 50px;
+  width: 100%;
+  font-size: 20px;
+}
+
+.copy-right-container {
+  /* position: absolute;
+  bottom: 40px; */
+  font-family: PingFangSC-Regular;
+  font-size: 14px;
+  color: #8795a3;
+  text-align: center;
+}
+
+.ant-input-affix-wrapper {
+  height: 50px;
+}

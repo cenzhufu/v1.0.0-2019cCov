@@ -1,0 +1,51 @@
+.vendor-result-item-container {
+    margin-top: 20px;
+
+    .vendor-result-item-title {
+        font-size: 22px;
+        color: #5E6871;
+    }
+
+    .vendor-result-item-list {
+        padding: 18px 0 38px 0;
+
+    }
+
+    .swiper-scrollbar {
+        background: none;
+    }
+
+    .swiper-scrollbar-drag {
+        // width: 198px !important;
+        background: #D1D1D1;
+        border-radius: 7px;
+    }
+
+    .swiper-container-horizontal>.swiper-scrollbar {
+        height: 4px;
+    }
+
+
+    // .blue-slide {
+    //     background: #4390EE;
+    // }
+
+    // .red-slide {
+    //     background: #CA4040;
+    // }
+
+    // .orange-slide:nth-child(even) {
+    //     background: #FF8604;
+    // }
+    // .orange-slide:nth-child(odd) {
+    //     background: gray;
+    // }
+
+    // .swiper-slide {
+    //     // width: 406px;
+    //     line-height: 300px;
+    //     color: #fff;
+    //     font-size: 36px;
+    //     text-align: center;
+    // }
+}

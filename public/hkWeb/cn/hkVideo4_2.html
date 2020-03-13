@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate" />
+    <meta http-equiv="Expires" content="0" />
+  </head>
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      border: 0;
+    }
+
+    /* .plugin {
+        width: 520px;
+        height: 298px;
+    } */
+  </style>
+
+  <body>
+    <div>
+      <div id="divPlugin2" class="plugin"></div>
+    </div>
+  </body>
+  <script src="../jquery-1.7.1.min.js"></script>
+  <script src="../codebase/webVideoCtrl.js"></script>
+  <script>
+    $(function() {
+      // 检查插件是否已经安装过
+      var iRet = WebVideoCtrl.I_CheckPluginInstall();
+      var browser = window.parent.document.browserType;
+      if (-1 == iRet) {
+        if (browser === "ie") {
+          alert(
+            "您还未安装过插件，双击开发包目录里的WebComponentsKit.exe安装！"
+          );
+        } else {
+          console.error(
+            "##############您还未安装过插件，双击开发包目录里的WebComponentsKit.exe安装！#########"
+          );
+        }
+        return;
+      }
+      var el_style = window.parent.document.el_style;
+      var oPlugin = {
+        // iWidth: 760, // plugin width
+        iWidth: el_style.w, //476 // plugin height
+        iHeight: el_style.h // plugin height
+      };
+
+      //获取选择的摄像头信息
+      var cameraInfo = window.parent.document.cameraInfo[3] || null;
+      console.log("获取选择的温度摄像头信息4_2", cameraInfo);
+      var hkServer = window.parent.document.hkServer;
+      console.log("获取温度默认信息", hkServer);
+
+      if (!cameraInfo) {
+        return;
+      }
+      var oLiveView = {
+        iProtocol: 1, // protocol 1：http, 2:https
+        szIP: cameraInfo.uri, //  "192.168.8.114", // protocol ip
+        szPort: hkServer.port, //"80", // protocol port
+        szUsername: cameraInfo.username, // "admin", // device username
+        szPassword: cameraInfo.password, // "introcks1234", // device password
+        iStreamType: 1, // stream 1：main stream  2：sub-stream  3：third stream  4：transcode stream
+        iChannelID: 2, // channel no  //1 正常 2 热力图
+        bZeroChannel: false // zero channel
+      };
+
+      // //测试
+      // var oLiveView = {
+      //     iProtocol: 1, // protocol 1：http, 2:https
+      //     szIP: "192.168.8.114", // protocol ip
+      //     szPort: "80", // protocol port
+      //     szUsername: "admin", // device username
+      //     szPassword: "introcks1234", // device password
+      //     iStreamType: 1, // stream 1：main stream  2：sub-stream  3：third stream  4：transcode stream
+      //     iChannelID: 2, // channel no   //1 正常 2 热力图
+      //     bZeroChannel: false // zero channel
+      // };
+
+      // 初始化插件参数及插入插件
+      WebVideoCtrl.I_InitPlugin(oPlugin.iWidth, oPlugin.iHeight, {
+        bWndFull: true, //是否支持单窗口双击全屏，默认支持 true:支持 false:不支持
+        iWndowType: 1,
+        cbInitPluginComplete: function() {
+          WebVideoCtrl.I_InsertOBJECTPlugin("divPlugin2");
+
+          // 检查插件是否最新
+          if (-1 == WebVideoCtrl.I_CheckPluginVersion()) {
+            alert(
+              "检测到新的插件版本，双击开发包目录里的WebComponentsKit.exe升级！"
+            );
+            return;
+          }
+
+          // 登录设备
+          WebVideoCtrl.I_Login(
+            oLiveView.szIP,
+            oLiveView.iProtocol,
+            oLiveView.szPort,
+            oLiveView.szUsername,
+            oLiveView.szPassword,
+            {
+              success: function(xmlDoc) {
+                // 开始预览
+                var szDeviceIdentify = oLiveView.szIP + "_" + oLiveView.szPort;
+                setTimeout(function() {
+                  WebVideoCtrl.I_StartRealPlay(szDeviceIdentify, {
+                    iStreamType: oLiveView.iStreamType,
+                    iChannelID: oLiveView.iChannelID,
+                    bZeroChannel: oLiveView.bZeroChannel
+                  });
+
+                  WebVideoCtrl.I_ChangeWndNum(1);
+                }, 1000);
+              }
+            }
+          );
+        }
+      });
+
+      // 关闭浏览器
+      $(window).unload(function() {
+        WebVideoCtrl.I_Stop();
+      });
+    });
+  </script>
+</html>

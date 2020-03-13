@@ -1,0 +1,167 @@
+.previewer-container {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  //   background-color: rgba(0, 0, 0, 0.65);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: slowShow 0.2s;
+
+  .preciewer-mask {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.65);
+  }
+  .previewer-content {
+    z-index: 1000;
+    width: 1200px;
+    height: 700px;
+    // background: #1e3143;
+    color: #8395a7;
+  }
+
+  // .previewer-header {
+  //   background-color: red;
+  // }
+  .preciewer-body {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    // background-color: #fff;
+  }
+
+  .previewer-content-left {
+    width: 70%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #000;
+
+    .previewer-content-header {
+      width: 100%;
+      height: 50px;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #1e3143;
+      // background: #fff;
+    }
+    .previewer-content-header-title {
+      font-size: 14px;
+    }
+    .previewer-content-header-close-icon {
+      transition-duration: 0.3s;
+
+      &:hover {
+        transform: rotate(180deg);
+      }
+    }
+
+    .previewer-content-body {
+      position: relative;
+      height: 90%;
+      width: 90%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .previewer-img {
+        height: 80%;
+        width: 80%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+    .previewer-content-footer {
+      width: 100%;
+      height: 50px;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #1e3143;
+      // background: #fff;
+      .previewer-content-footer-cropper {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+      }
+      .cropper-icon {
+        // align-self: center;
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        background: url(../images/cut-default.png) no-repeat center center;
+        cursor: pointer;
+      }
+      .cropper-active-icon {
+        background: url(../images//cut-active.png) no-repeat center center;
+      }
+
+      .previewer-content-footer-buttons {
+        animation: slowShow 0.2s;
+        // padding-right: 6px;
+      }
+    }
+  }
+
+  .previewer-content-right {
+    width: 24%;
+    height: 100%;
+    margin-left: 1%;
+    background: #1e3143;
+
+    .previewer-content-right-header {
+      width: 100%;
+      height: 50px;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #000;
+      background: #1e3143;
+      // background: #fff;
+    }
+    .previewer-content-right-header-title {
+      font-size: 14px;
+    }
+
+    .previewer-content-right-body {
+      height: 90%;
+      padding: 10px 10px 10px 20px;
+      overflow-y: auto;
+    }
+
+    .right-body-face-item {
+      display: inline-block;
+      width: 104px;
+      height: 104px;
+      // box-sizing: border-box;
+      margin-left: 16px;
+      margin-top: 10px;
+      border: 2px solid transparent;
+      border-radius: 4px;
+      cursor: pointer;
+      &:hover {
+        border-color: #1890ff;
+      }
+    }
+  }
+}
+
+.display-none {
+  display: none;
+}

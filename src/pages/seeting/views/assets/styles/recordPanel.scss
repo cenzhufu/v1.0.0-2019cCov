@@ -1,0 +1,56 @@
+.operate-record-container {
+    position: relative;
+    height: 100%;
+    padding-top: 20px;
+
+    .operate-record-filter {
+        margin-bottom: 20px;
+        display: flex;
+        // justify-content: 
+    }
+
+    .operate-record-input {
+        width: 200px;
+        margin-right: 20px;
+    }
+
+    .operate-record-date {
+        width: 240px;
+        margin-right: 20px;
+    }
+
+    .operate-record-select {
+        width: 200px;
+        margin-right: 20px;
+    }
+    .operate-record-body {
+        height: 100%;
+        padding-bottom: 40px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .operate-record-body-table {
+        // height: 100%;
+        overflow-y: auto;
+        animation: slowShow 0.2s;
+        // margin-bottom: 40px;
+    }
+
+    .operate-record-page {
+        margin-top: 40px;
+        display: flex;
+        justify-content: center;
+        animation: slowShow 0.2s;
+    }
+}
+
+// @keyframes slowShow {
+// 	from {
+// 		transform: scale(0);
+// 	}
+
+// 	to {
+// 		transform: scale(1);
+// 	}
+// }

@@ -1,0 +1,28 @@
+.deepEye_timeLine {
+  padding-left: 60px;
+}
+.deepEye_timeLine .f18 {
+  font-size: 18px;
+}
+.deepEye_timeLine .f20 {
+  font-size: 20px;
+}
+.deepEye_timeLine .ant-timeline-item {
+  padding-left: 60px;
+}
+.deepEye_timeLine .ant-timeline-item-tail {
+  left: 65px;
+  border-left: 1px solid #e9e9e9;
+}
+.deepEye_timeLine .left_content {
+  position: absolute;
+  left: 0px;
+}
+.deepEye_timeLine .right_content {
+  position: absolute;
+  left: 70px;
+  top: -7px;
+}
+.deepEye_timeLine .ant-timeline-item-first {
+  border-left: 0px;
+}
